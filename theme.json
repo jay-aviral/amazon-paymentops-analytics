@@ -1,0 +1,12 @@
+{
+  "name": "PaymentOps",
+  "dataColors": ["#FF9900", "#232F3E", "#146EB4", "#7F8C8D", "#C0392B", "#2E7D32", "#8E6BBE", "#00A1C9"],
+  "background": "#FFFFFF",
+  "foreground": "#232F3E",
+  "tableAccent": "#FF9900",
+  "textClasses": {
+    "title": {"fontSize": 14, "fontFace": "Segoe UI Semibold", "color": "#232F3E"},
+    "label": {"fontSize": 10, "fontFace": "Segoe UI", "color": "#444444"}
+  },
+  "visualStyles": {"*": {"*": {"title": [{"fontColor": {"solid": {"color": "#232F3E"}}, "fontSize": 12}]}}}
+}
