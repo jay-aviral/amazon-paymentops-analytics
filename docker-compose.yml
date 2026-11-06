@@ -1,0 +1,14 @@
+# MySQL 8 for the real analytical database:  docker compose up -d
+# then:  MYSQL_PASSWORD=paymentops python -m src.run_pipeline --target mysql
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: paymentops-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: paymentops
+      MYSQL_DATABASE: paymentops
+    ports: ["3306:3306"]
+    command: ["--local-infile=0", "--character-set-server=utf8mb4", "--innodb-buffer-pool-size=1G"]
+    volumes: ["mysql_data:/var/lib/mysql"]
+volumes:
+  mysql_data:
