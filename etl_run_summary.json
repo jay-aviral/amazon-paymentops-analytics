@@ -1,0 +1,152 @@
+{
+  "target": "sqlite",
+  "seconds": 48.1,
+  "tables": {
+    "payment_methods": {
+      "raw_rows": 6,
+      "clean_rows": 6,
+      "rejected_rows": 0,
+      "rejects_by_rule": {},
+      "standardised": {},
+      "warnings": {}
+    },
+    "customers": {
+      "raw_rows": 141639,
+      "clean_rows": 141498,
+      "rejected_rows": 141,
+      "rejects_by_rule": {
+        "DUPLICATE_EXACT": 141
+      },
+      "standardised": {
+        "state_standardised": 1488,
+        "city_tier_missing_filled_unknown": 673
+      },
+      "warnings": {}
+    },
+    "orders": {
+      "raw_rows": 968300,
+      "clean_rows": 967044,
+      "rejected_rows": 1256,
+      "rejects_by_rule": {
+        "DUPLICATE_EXACT": 967,
+        "ORPHAN_CUSTOMER": 193,
+        "INVALID_AMOUNT": 96
+      },
+      "standardised": {
+        "amount_reformatted": 1939,
+        "category_standardised": 4799
+      },
+      "warnings": {}
+    },
+    "payments": {
+      "raw_rows": 1002900,
+      "clean_rows": 1000000,
+      "rejected_rows": 2900,
+      "rejects_by_rule": {
+        "DUPLICATE_EXACT": 2000,
+        "INVALID_AMOUNT": 300,
+        "DUPLICATE_KEY_CONFLICT": 200,
+        "ORPHAN_ORDER": 200,
+        "FUTURE_TIMESTAMP": 100,
+        "PAYMENT_BEFORE_ORDER": 100
+      },
+      "standardised": {
+        "method_standardised": 8587,
+        "timestamp_alt_format_parsed": 2092,
+        "amount_reformatted": 2957,
+        "status_standardised": 7549
+      },
+      "warnings": {}
+    },
+    "gateway_transactions": {
+      "raw_rows": 997183,
+      "clean_rows": 995690,
+      "rejected_rows": 1493,
+      "rejects_by_rule": {
+        "DUPLICATE_EXACT": 1493
+      },
+      "standardised": {
+        "amount_reformatted": 972,
+        "status_standardised": 7565
+      },
+      "warnings": {
+        "gateway_name_differs_from_payment": 0
+      }
+    },
+    "refunds": {
+      "raw_rows": 92082,
+      "clean_rows": 91845,
+      "rejected_rows": 237,
+      "rejects_by_rule": {
+        "DUPLICATE_EXACT": 183,
+        "REFUND_EXCEEDS_PAYMENT": 27,
+        "ORPHAN_PAYMENT": 27
+      },
+      "standardised": {
+        "status_standardised": 671
+      },
+      "warnings": {}
+    }
+  },
+  "verification": {
+    "row_counts": {
+      "payment_methods": {
+        "dataframe": 6,
+        "database": 6
+      },
+      "customers": {
+        "dataframe": 141498,
+        "database": 141498
+      },
+      "orders": {
+        "dataframe": 967044,
+        "database": 967044
+      },
+      "payments": {
+        "dataframe": 1000000,
+        "database": 1000000
+      },
+      "gateway_transactions": {
+        "dataframe": 995690,
+        "database": 995690
+      },
+      "refunds": {
+        "dataframe": 91845,
+        "database": 91845
+      }
+    },
+    "control_totals": {
+      "payments": {
+        "dataframe": 3891824165.57,
+        "database": 3891824165.57
+      },
+      "orders": {
+        "dataframe": 3746004636.55,
+        "database": 3746004636.55
+      },
+      "gateway_transactions": {
+        "dataframe": 3872764959.65,
+        "database": 3872764959.65
+      },
+      "refunds": {
+        "dataframe": 343291655.13,
+        "database": 343291655.13
+      }
+    },
+    "integrity": {
+      "dq_orphan_orders": 0,
+      "dq_orphan_payments": 0,
+      "dq_orphan_gateway_rows": 0,
+      "dq_orphan_refunds": 0,
+      "dq_payment_customer_mismatch": 0,
+      "dq_payment_before_order": 0,
+      "dq_gateway_name_mismatch": 0,
+      "dq_orders_without_payment": 0,
+      "dq_multiple_success_per_order": 0,
+      "dq_attempt_sequence_gaps": 0,
+      "dq_order_status_vs_payments": 0,
+      "dq_refund_before_payment": 0
+    },
+    "problems": []
+  }
+}
